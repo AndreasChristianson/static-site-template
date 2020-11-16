@@ -15,6 +15,9 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: "babel-loader"
+        },
+        resolve: {
+          extensions: ['.js', '.jsx']
         }
       },
       {
@@ -36,7 +39,7 @@ module.exports = {
       template: path.join(__dirname, 'src', 'index.html'),
       filename: 'index.html',
       inject: 'body'
-  }),
+    }),
   ],
   optimization: {
     moduleIds: 'deterministic',
@@ -50,5 +53,9 @@ module.exports = {
         },
       },
     },
+  },
+  devServer: {
+    contentBase: './dist',
+    open: true
   }
 };
